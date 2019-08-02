@@ -43,4 +43,9 @@ if __name__ == "__main__":
         sys.exit(0)
     tsd, td, ts = extract(sys.argv[1])
     dom = td + '.' + ts
+    try:
+        socket.gethostbyname(dom)
+    except socket.gaierror:
+        print("Host is invalid or not resolvable.")
+        sys.exit(1)
     main(dom)
