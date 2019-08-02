@@ -7,7 +7,7 @@ import sys
 
 DOMAIN_REGX = r'([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}'
 
-IPINFO_URL = 'http://ipinfo.io/'
+IPINFO_URL = 'https://ipinfo.io/'
 
 
 def request_to_ipinfo(ip):
