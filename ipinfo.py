@@ -61,7 +61,9 @@ if __name__ == "__main__":
     if validators.url(ARG1) or validators.domain(ARG1):
         tsd, td, ts = extract(ARG1)
         host = td + '.' + ts
-    host = ARG1
+    else:
+        host = ARG1
+    
     try:
         socket.gethostbyname(host)
     except socket.gaierror:
