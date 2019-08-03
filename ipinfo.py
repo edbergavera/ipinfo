@@ -48,12 +48,12 @@ def main(argv):
 
 if __name__ == "__main__":
     
-    ARG1 = sys.argv[1]
-    
     if len(sys.argv) == 1:
         print(request_to_ipinfo("")["ip"])
         sys.exit(0)
-
+    
+    ARG1 = sys.argv[1]
+    
     if validators.ipv4(ARG1):
         main(ARG1)
         sys.exit(0)
