@@ -59,8 +59,8 @@ if __name__ == "__main__":
         sys.exit(0)
 
     if validators.url(ARG1) or validators.domain(ARG1):
-        tsd, td, ts = extract(ARG1)
-        host = td + '.' + ts
+        ext = extract(ARG1)
+        host = '.'.join(ext[:])
     else:
         host = ARG1
     
