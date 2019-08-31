@@ -60,10 +60,7 @@ if __name__ == "__main__":
 
     if validators.url(ARG1) or validators.domain(ARG1):
         ext = extract(ARG1)
-        if ext.subdomain == '':
-            host = '.'.join(ext[-2:])
-        else:
-            host = '.'.join(ext[:])
+        host = ext.fqdn
     else:
         host = ARG1
     
