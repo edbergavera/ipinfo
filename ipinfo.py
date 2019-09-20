@@ -6,6 +6,7 @@ import requests
 import sys
 from tldextract import extract
 import validators
+from urllib.parse import urlparse
 
 DOMAIN_REGX = r'([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}'
 
@@ -58,7 +59,10 @@ if __name__ == "__main__":
         main(ARG1)
         sys.exit(0)
 
-    if validators.url(ARG1) or validators.domain(ARG1):
+    if validators.url(ARG1):
+        ext = urlparse(ARG1)
+        host = ext.netloc
+    elif validators.domain(ARG1):
         ext = extract(ARG1)
         host = ext.fqdn
     else:
